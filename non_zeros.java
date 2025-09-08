@@ -3,9 +3,10 @@ import java.util.Arrays;
 
 class non_zeros {
     public static void main(String[] args) {
-        int n = 100;
+        int n = 11;
         non_zeros obj = new non_zeros();
         int results[] = obj.getNonIntegers(n);
+        System.out.println("number : " + n);
         System.out.println("Final Output : " + Arrays.toString(results));
     }
 
