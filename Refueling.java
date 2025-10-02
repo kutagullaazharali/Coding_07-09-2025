@@ -1,30 +1,28 @@
+
 import java.util.Collections;
 import java.util.PriorityQueue;
+
 
 class Refueling {
 
     public int minRefuelStops(int target, int startFuel, int[][] stations) {
-        // Max heap to store fuel of stations we have passed
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        int stops = 0;
         int i = 0;
         int n = stations.length;
-        int stops = 0, maxDist = startFuel;
-
-        while (maxDist < target) {
-            // Add all stations we can reach with current fuel
-            while (i < n && stations[i][0] <= maxDist) {
+        int maxFuel = startFuel;
+        while(maxFuel < target) {
+            while (i<n && stations[i][0] <= maxFuel) { 
                 pq.offer(stations[i][1]);
                 i++;
             }
-
-            // If no station to refuel and target not reached
-            if (pq.isEmpty()) return -1;
-
-            // Refuel with the largest fuel available
-            maxDist += pq.poll();
+            if(pq.isEmpty()) {
+                return -1;
+            }
+            maxFuel +=pq.poll();     
             stops++;
-        }
-        return stops;
+        } 
+      return stops;
     }
 
     public static void main(String[] args) {
