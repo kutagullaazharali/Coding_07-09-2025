@@ -1,7 +1,7 @@
 
 public class List<T> {
 
-    public void add(String string) {
+    public void add(Student string) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
