@@ -62,7 +62,7 @@ class Truck extends Vehicle {
 }
 
 // Main class
-public class TypeCastRealTimeExample {
+public class TypeCastRealTimeEx {
 
     public static void main(String[] args) {
         // Primitive type casting example
