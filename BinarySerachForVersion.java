@@ -1,6 +1,5 @@
 public class BinarySerachForVersion {
       public int firstBadVersion(int n) {
-
         int left = 0;
         int right = n;
         while(left<right) {

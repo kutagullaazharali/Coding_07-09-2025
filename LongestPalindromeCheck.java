@@ -8,7 +8,6 @@ public class LongestPalindromeCheck {
         return true;
     }
     public static String getLongestPalindrome(String str) {
-        String res = "";
         String longestPalindrome = null;
         int leng = 0;
         int n = str.length();
@@ -17,8 +16,10 @@ public class LongestPalindromeCheck {
                 int len = j - i;
                 String curr = str.substring(i, j + 1);
                 if (isPalindrome(curr)) {
-                    longestPalindrome = curr;
-                    leng = len;
+                    if (len > leng) {
+                        longestPalindrome = curr;
+                        leng = len;
+                    }
                 }
             }
         }
