@@ -1,11 +1,8 @@
 
 import java.util.*;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Arrays;
-import java.util.Queue;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class BinaryTree {
     public static void binaryTree(int start,Map<Integer,List<Integer>> graph){
@@ -16,7 +13,7 @@ public class BinaryTree {
         while(!queue.isEmpty()) {
             int node = queue.poll();
             System.out.println("node : " + node);
-            if()
+            // if()
             for (int neighbour : graph.get(node)) {
                 if (!visited.contains(neighbour)) {
                     visited.add(neighbour);
