@@ -39,7 +39,6 @@ public class AddNumberLinked {
             Node1 ele = head;
             sum1 += ele.data;
             s1 = ele.data + s1;
-            System.out.println(ele.data);
             head = head.next;
         }
 
@@ -50,15 +49,9 @@ public class AddNumberLinked {
             Node2 ele1 = head1;
             sum2 += ele1.data;
             s2 = ele1.data + s2;
-            System.out.println(ele1.data);
             head1 = head1.next;
         }
-        System.out.println(s1);
-        System.out.println(s2);
         int res = Integer.valueOf(s1) + Integer.valueOf(s2);
-        System.out.println("results : "+res);
-        System.out.println("Sum 1 : " + sum1);
-        System.out.println("Sum 2 : " + sum2);
-        System.out.println(sum1 + sum2);
+        System.out.println("final output : " + res);
     }
 }
