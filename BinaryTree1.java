@@ -1,21 +1,20 @@
-class Node {
+class Nodenew {
     int value;
-    Node left, right;
-
-    Node(int value) {
+    Nodenew left, right;
+    Nodenew(int value) {
         this.value = value;
         left = right = null;
     }
 }
 
 public class BinaryTree1 {
-    Node root;
+    Nodenew root;
 
     public static void main(String[] args) {
         BinaryTree1 tree = new BinaryTree1();
-        tree.root = new Node(1);
-        tree.root.left = new Node(2);
-        tree.root.right = new Node(3);
+        tree.root = new Nodenew(1);
+        tree.root.left = new Nodenew(2);
+        tree.root.right = new Nodenew(3);
         System.out.println(tree);
     }
 }
