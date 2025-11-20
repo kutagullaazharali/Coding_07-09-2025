@@ -1,13 +1,16 @@
 public class SubArray3 {
     public static int getMaxSubarray(int num[], int k) {
         int res = 0;
-        for (int i = 0; i < num.length-k; i++) {
-            int n1 = num[i];
-            int n2 = num[i+1];
-            int n3 = num[i + 2];
-            res = Math.max(res, n1 + n2 + n3);
+        int sum = 0;
+        for (int i = 0; i < k; i++) {
+            res += num[i];
         }
-        return res;
+        sum = res;
+        for (int j = k; j < num.length; j++) {
+            res += num[j] - num[j - k];
+            sum = Math.max(res, sum);
+        }
+        return sum;
     }
     public static void main(String[] args) {
         int[] arr = { 2, 5, 1, 8, 2, 9, 1 };
