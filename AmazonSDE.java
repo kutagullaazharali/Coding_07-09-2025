@@ -44,6 +44,7 @@ public class AmazonSDE {
         head.next = new Node(1);
         head.next.next = new Node(2);
         head.next.next.next = new Node(3);
+        head.next.next.next.next = new Node(5);
         System.out.println("Original Linked List:");
         int output = SDEQuestion(head);
         System.out.println("final output : " + output);
