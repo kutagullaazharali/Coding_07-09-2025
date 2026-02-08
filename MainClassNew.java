@@ -1,6 +1,6 @@
 import java.util.*;
-import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Queue;
 
 class treeClass {
 
@@ -85,6 +85,38 @@ class MainClassNew {
         return root;
     }
 
+    public static boolean CheckBalancedTree(treeClass root) {
+        if (root == null) {
+            return true;
+        }
+        Stack<treeClass> stack = new Stack<>();
+        Map<treeClass, Integer> height = new HashMap<>();
+        treeClass current = root;
+        treeClass lastvisited = null;
+
+        while (!stack.isEmpty() || current != null) {
+            if (current != null) {
+                stack.push(current);
+                current = current.left;
+            } else {
+                treeClass node = stack.peek();
+                if (current.right != null && lastvisited != node.right) {
+                    current = node.right;
+                } else {
+                    stack.pop();
+                    int maxleft = height.getOrDefault(node.left, 0);
+                    int maxright = height.getOrDefault(node.right, 0);
+                    if (Math.abs(maxleft - maxright) > 1) {
+                        return false;
+                    }
+                    height.put(node, Math.max(maxleft, maxright) + 1);
+                    lastvisited = node;
+                }
+            }
+        }
+        return true;
+    }
+
     public static void main(String args[]) {
         treeClass tree = new treeClass();
         // tree.left = new treeClass(2);
@@ -108,14 +140,14 @@ class MainClassNew {
         System.out.println("===TreeLevelTraversal==============================");
         treeLevelTraversal(tree);
 
-        Integer[] arrInteger = { -10, null, -3, null, 0, null, 5, null, 9 };
+        Integer[] arrInteger = { 4, 2, 6, 1, 3, 5, 7 };
         if (arrInteger.length == 0 && arrInteger[0] == null) {
             System.out.println("Empty Array.............");
         }
         treeClass newtree = new treeClass(arrInteger[0]);
         Queue<treeClass> queue = new LinkedList<>();
         Set<Integer> set = new HashSet<>();
-        
+
         queue.add(newtree);
         int i = 1;
         while (i < arrInteger.length && !queue.isEmpty()) {
@@ -139,6 +171,8 @@ class MainClassNew {
         System.out.println(" New Tree ===PostOrder=======================================");
         postordertravel(newtree);
         System.out.println(" New Tree ===TreeLevelTraversal==============================");
-        treeLevelTraversal(newtree);       
+        treeLevelTraversal(newtree);
+
+        System.out.println(CheckBalancedTree(newtree));
     }
 }
