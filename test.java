@@ -1,4 +1,4 @@
-public class StringReverseNcheck {
+public class test {
 
     public static boolean rotateString(String s, String goal) {
         StringBuilder sb = new StringBuilder(s);
