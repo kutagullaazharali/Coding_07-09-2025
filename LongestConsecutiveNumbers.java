@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.HashSet;
 
 public class LongestConsecutiveNumbers {
@@ -8,7 +9,7 @@ public class LongestConsecutiveNumbers {
             set.add(num);
         }
         for (int num : set) {
-            if (set.contains(num - 1)) {
+            if (!set.contains(num - 1)) {
                 int count = 1;
                 int curretElement = num;
                 while (set.contains(curretElement)) {
@@ -20,9 +21,10 @@ public class LongestConsecutiveNumbers {
         }
         return results;
     }
+
     public static void main(String[] args) {
         int n[] = { 1, 2, 3, 4, 100, 200 };
         int output = getCountOfConsecutiveNumbers(n);
-        System.out.println("final output : "+output);
+        System.out.println("final output : " + output);
     }
 }

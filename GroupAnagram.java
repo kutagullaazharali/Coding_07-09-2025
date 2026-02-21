@@ -1,30 +1,24 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import  java.util.*;
+import java.util.*;
 
 public class GroupAnagram {
     public static ArrayList<List<String>> getCom(String[] str) {
-        
-     Map<String,List<String>> map = new HashMap<>();
 
-        for(int i=0; i<str.length; i++) {
-            String word = str[i];
-            char c[] = word.toCharArray();
+        Map<String, List<String>> map = new HashMap<>();
+        for (String word : str) {
+            char[] c = word.toCharArray();
             Arrays.sort(c);
-            String sb = new String(c);
-            if(!map.containsKey(sb))
-            {
-                map.put(sb, new ArrayList<>());
-            }
-            map.get(sb).add(str[i]);
+            String key = new String(c);
+
+            // map.putIfAbsent(key, new ArrayList<String>()); // Explicit type
+            map.get(key).add(word);
         }
-       return new ArrayList<List<String>>(map.values());
+
+        return new ArrayList<List<String>>(map.values()); // Explicit type
     }
+
     public static void main(String[] args) {
-        String str[] = {"eat","tea","tan","ate","nat","bat"};
-        List<List<String>> s =  getCom(str);
+        String[] str = { "eat", "tea", "tan", "ate", "nat", "bat" };
+        ArrayList<List<String>> s = getCom(str);
         System.out.println(s);
     }
 }
